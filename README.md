@@ -1,4 +1,4 @@
-# Event RSVP System 🎉
+# Event RSVP System 
 A console-based C++ project that manages guest lists, confirmations, and WhatsApp invitations for events.
 
 ## Features
