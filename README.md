@@ -16,4 +16,4 @@ A console-based C++ project that manages guest lists, confirmations, and WhatsAp
 
 ## Author
 **Adir Boccara**  
-Built as part of interview preparation for **Emerson Software Engineering Internship**.
+
