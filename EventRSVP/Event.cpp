@@ -5,8 +5,11 @@ Event::Event(const std::string& name) {
 	this->eventName = name;
 }
 
-void Event:: addGuest(const Guest& guest) {
+Event::Event() : db("events.db"){}
+
+void Event:: addGuest(const Guest& guest)  {
 	guests.push_back(guest);
+	db.addGuest(guest.getName(), guest.isAttending());
 }
 
 void Event::confirmGuest(const std::string& phone, int guestsCount, bool wantsTransport, const std::string& transportLoc) {

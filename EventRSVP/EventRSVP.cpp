@@ -1,25 +1,25 @@
-﻿#include <iostream>
-#include "Event.h"
-#include "WhatsAppAPI.h"
+﻿#include "Database.h"
+#include <iostream>
 
 int main() {
-    Event wedding("Adir & Hodaya Wedding");
+    Database db("events.db");
 
-    // ניצור אורחים
-    Guest g1("Yarin Arama", "972502222222");
-    Guest g2("Ilay Weizman", "972503333333");
-    Guest g3("Hodaya Leibovitz", "972504444444");
+    // נוודא שהטבלה קיימת
+    db.execute(
+        "CREATE TABLE IF NOT EXISTS Guests ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        "name TEXT NOT NULL, "
+        "attending INTEGER"
+        ");"
+    );
 
-    // נוסיף אותם לרשימת האורחים
-    wedding.addGuest(g1);
-    wedding.addGuest(g2);
-    wedding.addGuest(g3);
+    // נוסיף אורחים
+    db.addGuest("Adir Boccara", true);
+    db.addGuest("Hodaya Liebovich", false);
+    db.addGuest("Howard Freedberg", true);
 
-    // ניצור את מערכת הוואטסאפ
-    WhatsAppAPI api;
-
-    // נשלח לכולם הודעה אחידה
-    wedding.sendInvitations(api);
+    std::cout << "✅ Guests added successfully!" << std::endl;
 
     return 0;
 }
+

@@ -23,6 +23,7 @@ public:
 
     std::string getName() const { return name; }
 
+    bool isAttending() const { return attending; }
 
 };
 

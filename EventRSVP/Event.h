@@ -4,12 +4,13 @@
 
 #include <vector>
 #include "Guest.h"
-#include "WhatsAppAPI.h"
+#include "Database.h"
 
 class Event {
 private:
 	std::string eventName;
 	std::vector<Guest> guests;
+	Database db;
 public:
 	Event(const std::string& name);
 
@@ -23,6 +24,7 @@ public:
 
 	void sendInvitations(const WhatsAppAPI& api) const;	
 
+	Event();
 };
 
 

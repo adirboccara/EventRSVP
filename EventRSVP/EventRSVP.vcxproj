@@ -104,10 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\vcpkg\installed\x64-windows\include;C:\Users\97252\Desktop\EmersonP\EventRSVP\EventRSVP\vcpkg_installed;C::\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\vcpkg\installed\x64-windows\debug\lib;C:\vcpkg\installed\x64-windows\lib;C:\Users\97252\Desktop\EmersonP\EventRSVP\EventRSVP\x64-windows\lib;C::\vcpkg\installed\64x-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcurl.lib;sqlite3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -118,16 +121,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\vcpkg\installed\x64-windows\include;C:\Users\97252\Desktop\EmersonP\EventRSVP\EventRSVP\vcpkg_installed;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\vcpkg\installed\x64-windows\debug\lib;C:\vcpkg\installed\x64-windows\lib;C:\Users\97252\Desktop\EmersonP\EventRSVP\EventRSVP\x64-windows\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libcurl.lib;sqlite3.lib;sqlite3.lib$(CoreLibraryDependencies);%(AdditionalDependencies)libcurl.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ApiHandler.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventRSVP.cpp" />
     <ClCompile Include="Guest.cpp" />
@@ -135,8 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApiHandler.h" />
+    <ClInclude Include="Database.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="Guest.h" />
+    <ClInclude Include="GuestResponse.h" />
     <ClInclude Include="WhatsAppAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
