@@ -40,6 +40,7 @@ bool Database::addGuest(const std::string& name, bool rsvp) {
 
     return execute(query);
 }
+<<<<<<< HEAD
 
 void Database::getAllGuests() {
     std::string query = "SELECT id, name, attending FROM Guests;";
@@ -92,3 +93,5 @@ bool Database::updateRSVP(int id, bool rsvp) {
     std::cout << "RSVP updated for guest ID " << id << std::endl;
     return true;
 }
+=======
+>>>>>>> 80773c7b8f293fb842b1db4732f0bba6faf175b4
