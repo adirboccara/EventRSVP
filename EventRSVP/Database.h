@@ -12,7 +12,7 @@ public:
 
 
     bool execute(const std::string& query);
-    bool addGuest(const std::string& name, bool rsvp);
+    bool addGuest(const std::string& name,const std::string& phone, bool rsvp);
     void getAllGuests();
     bool updateRSVP(int id, bool rsvp);
     sqlite3* getDB() const { return db; }
