@@ -5,18 +5,18 @@ Database::Database() : Database("events.db") {}
 
 Database::Database(const std::string& dbName) {
     if (sqlite3_open(dbName.c_str(), &db) != SQLITE_OK) {
-        std::cerr << "❌ Error opening DB: " << sqlite3_errmsg(db) << std::endl;
+        std::cerr << "Error opening DB: " << sqlite3_errmsg(db) << std::endl;
         db = nullptr;
     }
     else {
-        std::cout << "✅ Database connected!" << std::endl;
+        std::cout << "Database connected!" << std::endl;
     }
 }
 
 Database::~Database() {
     if (db) {
         sqlite3_close(db);
-        std::cout << "🔒 Database closed." << std::endl;
+        std::cout << "Database closed." << std::endl;
     }
 }
 
@@ -24,7 +24,7 @@ bool Database::execute(const std::string& query) {
     char* errMsg = nullptr;
     int rc = sqlite3_exec(db, query.c_str(), nullptr, nullptr, &errMsg);
     if (rc != SQLITE_OK) {
-        std::cerr << "⚠️ SQL error: " << errMsg << std::endl;
+        std::cerr << "SQL error: " << errMsg << std::endl;
         sqlite3_free(errMsg); 
         return false;
     }
