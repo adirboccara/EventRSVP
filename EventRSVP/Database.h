@@ -15,6 +15,8 @@ public:
     bool addGuest(const std::string& name, bool rsvp);
     void getAllGuests();
     bool updateRSVP(int id, bool rsvp);
+    sqlite3* getDB() const { return db; }
+
 
 
 };

@@ -1,25 +1,21 @@
 ﻿#include "Database.h"
-#include <iostream>
+#include "ApiHandler.h"
 
 int main() {
-    Database db("events.db");
+    Database db("event.db");
+    ApiHandler api;
 
-    // נוודא שהטבלה קיימת
-    db.execute(
-        "CREATE TABLE IF NOT EXISTS Guests ("
+    db.execute("CREATE TABLE IF NOT EXISTS Guests ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "name TEXT NOT NULL, "
-        "attending INTEGER"
-        ");"
-    );
+        "name TEXT, "
+        "phone TEXT, "
+        "attending INTEGER);");
 
-    // נוסיף אורחים
-    db.addGuest("Adir Boccara", true);
-    db.addGuest("Hodaya Liebovich", false);
-    db.addGuest("Howard Freedberg", true);
+    db.addGuest("Adir Boccara", "0541234567", true);
+    db.addGuest("Hodaya Liebovich", "0549876543", false);
 
-    std::cout << "✅ Guests added successfully!" << std::endl;
+    db.getAllGuests();
+    api.sendInvitations(db);
 
     return 0;
 }
-
