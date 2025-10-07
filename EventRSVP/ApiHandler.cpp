@@ -27,7 +27,7 @@ void ApiHandler::sendInvitations(Database& db) {
         return;
     }
 
-    std::cout << "\n✉Sending invitations via API (httpbin.org)...\n";
+    std::cout << "\nSending invitations via API (httpbin.org)...\n";
 
     while ((rc = sqlite3_step(stmt)) == SQLITE_ROW) {
         std::string name = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
@@ -67,7 +67,7 @@ void ApiHandler::readExampleAPI() {
 
     std::string readBuffer;
 
-    curl_easy_setopt(curl, CURLOPT_URL, "https://httpbin.org/get"); // API אמיתי
+    curl_easy_setopt(curl, CURLOPT_URL, "https://httpbin.org/get"); 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
 
@@ -99,7 +99,7 @@ void ApiHandler::readExampleAPI() {
 
         std::string origin = response["origin"];
         std::string url = response["url"];
-        std::cout << "Origin: " << origin << "\n🔗 URL: " << url << std::endl;
+        std::cout << "Origin: " << origin << "\n URL: " << url << std::endl;
     }
     else {
         std::cerr << "Failed to read API: " << curl_easy_strerror(res) << std::endl;
